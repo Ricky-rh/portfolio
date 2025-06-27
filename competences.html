@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compétences – Frère Richard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #4e73df;
+      --primary-dark: #2e59d9;
+      --bg: #f9f9f9;
+      --text: #222;
+      --bg-dark: #181818;
+      --text-dark: #eee;
+      --card-bg: #fff;
+      --card-bg-dark: #262626;
+
+      /* Dégradés pour chaque catégorie */
+      --gradient-tech-start: #667eea;
+      --gradient-tech-end: #764ba2;
+
+      --gradient-pedag-start: #43cea2;
+      --gradient-pedag-end: #185a9d;
+
+      --gradient-psy-start: #ff6a00;
+      --gradient-psy-end: #ee0979;
+
+      --gradient-relig-start: #56ab2f;
+      --gradient-relig-end: #a8e063;
+
+      --gradient-lang-start: #00c6ff;
+      --gradient-lang-end: #0072ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
+      padding: 1rem;
+    }
+
+    header {
+      text-align: center;
+      background-color: var(--primary);
+      color: white;
+      padding: 2rem 1rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Styles des boîtes par catégorie avec dégradés différents */
+    .category-box {
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      color: white;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .tech {
+      background: linear-gradient(135deg, var(--gradient-tech-start), var(--gradient-tech-end));
+    }
+
+    .pedag {
+      background: linear-gradient(135deg, var(--gradient-pedag-start), var(--gradient-pedag-end));
+    }
+
+    .psy {
+      background: linear-gradient(135deg, var(--gradient-psy-start), var(--gradient-psy-end));
+    }
+
+    .relig {
+      background: linear-gradient(135deg, var(--gradient-relig-start), var(--gradient-relig-end));
+    }
+
+    .lang {
+      background: linear-gradient(135deg, var(--gradient-lang-start), var(--gradient-lang-end));
+    }
+
+    /* Titres avec icônes (utilisant Unicode emojis) */
+    .category-box h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Icônes devant les titres */
+    .tech h2::before {
+      content: "💻";
+    }
+
+    .pedag h2::before {
+      content: "📚";
+    }
+
+    .psy h2::before {
+      content: "🧠";
+    }
+
+    .relig h2::before {
+      content: "⛪";
+    }
+
+    .lang h2::before {
+      content: "🗣️";
+    }
+
+    ul {
+      list-style: disc inside;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Mode sombre */
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    body.dark-mode header {
+      background-color: var(--primary-dark);
+    }
+
+    body.dark-mode .category-box {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1rem;
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+
+    /* Bouton mode sombre */
+    .toggle-theme {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 999;
+      font-size: 1.5rem;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: inherit;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-theme" onclick="toggleTheme()">🌓</button>
+
+  <header>
+    <h1 id="page-title">Mes Compétences</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" id="menu-home">Accueil</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="category-box tech">
+      <h2>Compétences techniques et numériques</h2>
+      <ul>
+        <li>Développement Web (Django, HTML/CSS, JavaScript) : Conception et déploiement d’applications web complètes pour la gestion de structures complexes (congrégation, membres, missions, décisions).</li>
+        <li>Internet des Objets (IoT) : Réalisation de projets intégrant capteurs, servomoteurs, affichages LCD, pour automatiser et rendre intelligentes des salles de classe et espaces communautaires.</li>
+        <li>Gestion de contenu et mise en forme : Rédaction de documents académiques, rapports et présentations avec normes strictes (APA), intégrant bibliographies, notes de bas de page et glossaires.</li>
+      </ul>
+    </section>
+
+    <section class="category-box pedag">
+      <h2>Compétences pédagogiques et éducatives</h2>
+      <ul>
+        <li>Conception et animation de formations : Élaboration de camps vocationnels, accompagnement spirituel et formation des jeunes en milieu religieux.</li>
+        <li>Gestion de projets éducatifs : Planification et coordination de projets scolaires et pastoraux, intégrant aspects pédagogiques, organisationnels et administratifs.</li>
+        <li>Communication pédagogique : Création de supports pédagogiques dynamiques, clairs et adaptés à différents publics, y compris présentations interactives.</li>
+      </ul>
+    </section>
+
+    <section class="category-box psy">
+      <h2>Compétences en psychologie</h2>
+      <ul>
+        <li>Accompagnement psychologique : Soutien et écoute bienveillante des jeunes et des membres de la communauté pour favoriser leur bien-être mental et émotionnel.</li>
+        <li>Techniques d’aide psychologique : Mise en œuvre d’approches adaptées pour accompagner les personnes en situation de vulnérabilité, gérer le stress et promouvoir la santé mentale.</li>
+        <li>Intégration de la psychologie dans l’accompagnement vocationnel : Utilisation des principes psychologiques pour mieux comprendre les parcours personnels et faciliter le discernement.</li>
+      </ul>
+    </section>
+
+    <section class="category-box relig">
+      <h2>Compétences religieuses et spirituelles</h2>
+      <ul>
+        <li>Accompagnement vocationnel : Soutien personnalisé et animation d’espaces de discernement pour les jeunes en quête de leur appel religieux.</li>
+        <li>Engagement mariste : Connaissance approfondie de la spiritualité et des valeurs des Frères Maristes, intégration dans la vie communautaire et apostolique.</li>
+        <li>Création de contenus spirituels : Élaboration de livrets de prière, liturgies adaptées et ressources spirituelles pour la communauté.</li>
+      </ul>
+    </section>
+
+    <section class="category-box lang">
+      <h2>Compétences linguistiques et communicationnelles</h2>
+      <ul>
+        <li>Bilinguisme français/créole : Maîtrise des deux langues pour la rédaction, la formation et l’accompagnement dans un contexte multiculturel.</li>
+        <li>Communication claire et structurée : Capacité à synthétiser des informations complexes, à rédiger des textes académiques et à animer des conférences accessibles.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Frère Richard NAZAIRE, fms. Tous droits réservés - &copy;Maristes.</p>
+  </footer>
+
+  <script>
+    // Mode sombre
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+</body>
+</html>

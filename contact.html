@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rendez-vous</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #f0f4fb;
+      --text: #333;
+      --card: #ffffff;
+      --primary: #1a73e8;
+      --border: #cdd9ed;
+      --header-bg: linear-gradient(90deg, #1a73e8, #0059c1);
+    }
+
+    body.dark-mode {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --card: #1e1e1e;
+      --primary: #90caf9;
+      --border: #444;
+      --header-bg: linear-gradient(90deg, #0d47a1, #002171);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      background: var(--header-bg);
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      border-radius: 0 0 16px 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.4rem;
+    }
+
+    header a {
+      display: inline-block;
+      margin-top: 12px;
+      color: #dcefff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    header a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .dark-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 999;
+      font-size: 1.5rem;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: inherit;
+    }
+
+    .dark-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    main {
+      max-width: 650px;
+      margin: 40px auto;
+      background-color: var(--card);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .contact-item i {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-right: 10px;
+      min-width: 25px;
+      text-align: center;
+    }
+
+    form label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    form label i {
+      color: var(--primary);
+      margin-right: 10px;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    form button {
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #0059c1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="page-title">Contactez-moi</h1>
+    <a href="index.html" id="menu-home">Accueil</a>
+    <button class="dark-toggle" onclick="toggleDarkMode()">🌓</button>
+  </header>
+
+  <main>
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>richard.nazaire@maristas.org.mx</span>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-whatsapp"></i>
+        <span>+509 4007-4297</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Jérémie, Haïti</span>
+      </div>
+    </div>
+
+    <form action="#" method="POST">
+      <label for="nom"><i class="fas fa-user"></i> Nom :</label>
+      <input type="text" id="nom" name="nom" required>
+
+      <label for="email"><i class="fas fa-envelope-open-text"></i> Email :</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message"><i class="fas fa-comment-dots"></i> Message :</label>
+      <textarea id="message" name="message" rows="6" required></textarea>
+
+      <button type="submit"><i class="fas fa-paper-plane"></i> Envoyer</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Frère Richard NAZAIRE, fms. Tous droits réservés - &copy;Maristes.</p>
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mon CV</title>
+    <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Variables couleur par défaut */
+    :root {
+      --bg: #f4f4f9;
+      --text: #333;
+      --primary: #3498db;
+      --primary-hover: #2980b9;
+      --header-bg: #3498db;
+      --btn-bg: #3498db;
+      --btn-hover-bg: #2980b9;
+    }
+
+    /* Mode sombre */
+    body.dark-mode {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --primary: #90caf9;
+      --primary-hover: #64b5f6;
+      --header-bg: #0d47a1;
+      --btn-bg: #90caf9;
+      --btn-hover-bg: #64b5f6;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background: var(--header-bg);
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      border-radius: 0 0 16px 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.4rem;
+    }
+
+    header a {
+      display: inline-block;
+      margin-top: 12px;
+      color: #dcefff;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    header a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    #menu-home {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 1.1rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+
+    #menu-home:hover {
+      border-bottom: 2px solid white;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    main h1, main h2, main h3 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: bold;
+      margin-right: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary-hover);
+    }
+
+    .cv-container {
+      background: var(--bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: var(--text);
+    }
+
+    .cv-section {
+      margin-top: 1.5rem;
+    }
+
+    .cv-section ul {
+      padding-left: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-right: 1rem;
+      background: var(--btn-bg);
+      color: white;
+      padding: 0.7rem 1.2rem;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: var(--btn-hover-bg);
+    }
+
+    /* Bouton dark mode fixé en bas à droite */
+    .dark-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 999;
+      font-size: 1.5rem;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: inherit;
+    }
+
+    
+    footer {
+      margin-top: 3rem;
+      padding: 1rem;
+      background-color: #f1f1f1;
+      text-align: center;
+    }
+
+    
+  .social-links {
+    list-style: none;
+    padding-left: 0;
+  }
+  .social-links li {
+    margin-bottom: 0.7rem;
+  }
+  .social-links a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+  }
+  .social-links a:hover {
+    color: var(--primary-hover);
+  }
+  .social-links i {
+    font-size: 1.6rem;
+  }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 2rem;
+      color: #333;
+    }
+
+    section {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #222;
+    }
+
+   /* Style pour chaque box de section CV */
+    .cv-box {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      transition: box-shadow 0.3s ease;
+    }
+    .cv-box:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .social-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .social-box {
+      flex: 1 1 160px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      color: white;
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+      cursor: pointer;
+    }
+
+    .social-box i {
+      font-size: 2.2rem;
+      min-width: 30px;
+      text-align: center;
+    }
+
+    /* Couleurs par réseau */
+    .github {
+      background-color: #333;
+    }
+
+    .facebook {
+      background-color: #1877f2;
+    }
+
+    .whatsapp {
+      background-color: #25d366;
+    }
+
+    .x {
+      background-color: #1da1f2;
+    }
+
+    .instagram {
+      background: linear-gradient(
+        45deg,
+        #feda75,
+        #fa7e1e,
+        #d62976,
+        #962fbf,
+        #4f5bd5
+      );
+    }
+
+    .social-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      filter: brightness(1.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .social-boxes {
+        flex-direction: column;
+        align-items: center;
+      }
+      .social-box {
+        flex: 1 1 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 id="page-title">Mon CV</h1>
+  <a href="index.html" id="menu-home">Accueil</a>
+  <button class="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌓</button>
+</header>
+
+<main>
+  <h1>Mon CV</h1>
+
+  <section class="cv-container">
+
+    <p><strong>Frère Richard NAZAIRE, fms</strong><br>
+    Religieux | Psychologue | Accompagnateur vocationnel | Educateur | Informaticien<br>
+    Né le 29 mars 1999, Cap-Haïtien<br>
+    richard.nazaire@maristas.org.mx | 47395529<br>
+    nazairerichard6@gmail.com | 40074297</p>
+
+    <div class="cv-actions" style="margin-bottom: 2rem;">
+      <a href="medias/cv.pdf" class="btn" target="_blank">📥 Télécharger le CV (PDF)</a>
+      <a href="contact.html" class="btn">✉️ Me contacter</a>
+    </div>
+
+    <section class="cv-section cv-box">
+      <h2>Accroche</h2>
+      <p>Religieux engagé et éducateur passionné, doté d’une solide formation en psychopédagogie, théologie et informatique. Expérimenté dans l’accompagnement vocationnel, la pastorale jeunesse, et la gestion de projets éducatifs et sociaux. Motivé par le service, la fraternité et le développement intégral des jeunes.</p>
+    </section>
+
+
+
+    <section class="cv-section cv-box">
+      <h2>Expériences professionnelles</h2>
+      <ul>
+        <li><strong>Accompagnateur vocationnel & Assistant pastorale des jeunes</strong><br>
+          Diocèse de Jérémie, 2023 - aujourd’hui<br>
+          Animation de camps, retraites spirituelles, catéchèse, formation et accompagnement individuel et communautaire.
+        </li>
+        <li><strong>Psychothérapeute & Psychopédagogue</strong><br>
+          CAP, 2020 – 2022<br>
+          Soutien psychologique et accompagnement éducatif auprès de jeunes.
+        </li>
+        <li><strong>Directeur général & Planificateur pédagogique</strong><br>
+          Ensemble Scolaire Père Basile Moreau (ESPBM), 2017 – 2020<br>
+          Gestion administrative, organisation pédagogique, supervision éducative.
+        </li>
+        <li><strong>Enseignant</strong><br>
+          ESPBM, Institut Saint-Louis de Gonzague, École Nationale Congréganiste Christ-Roi, 2017 - 2020<br>
+          Cours de sciences, psychologie et pastorale.
+        </li>
+        <li><strong>Administrateur & Gestionnaire de projets</strong><br>
+          La Valla, 2021 – 2023<br>
+          Coordination de projets éducatifs et développement d’une application communautaire.
+        </li>
+        <li><strong>Développeur d’application</strong><br>
+          Jérémie, 2024<br>
+          Projet fms_haiti pour la gestion de la vie religieuse (2025).
+        </li>
+        <li><strong>Créateur de contenu éducatif</strong><br>
+          Depuis 2017<br>
+          Présentations, devoirs, camps et formations bibliques.
+        </li>
+      </ul>
+    </section>
+
+    <section class="cv-section cv-box">
+      <h2>Formation</h2>
+      <ul>
+        <li>Maîtrise en Sciences de l’Éducation (en cours) – Campus des Frères Maristes (CEMAR-FSE), 2024 – présent</li>
+        <li>Licence en Psychopédagogie – Faculté des Lettres et Sciences Humaines (UNDH-FLESH), 2017 – 2019</li>
+        <li>Cycle en Sciences de l’Éducation – Faculté des Sciences de l’Éducation des Filles de Marie (UNDH/FSE-FDM), 2018 – 2020</li>
+        <li>Certification en Sciences Catéchétiques – Office Catéchétique de l’Archidiocèse de Port-au-Prince, 2016 – 2018</li>
+        <li>Certification en Informatique Bureautique – Business and Technology Institute (BTI), 2020 – 2021</li>
+        <li>Formation en Techniques et Réseaux Informatiques – Saint Francis School of Technology (SFST), 2024 – 2026 (en cours)</li>
+        <li>Études de Théologie (programme d’été, en cours) – Institut de Formation Chrétienne-Catholique de Jérémie, 2024 – 2030</li>
+      </ul>
+    </section>
+
+    <section class="cv-section cv-box">
+      <h2>Compétences clés</h2>
+      <ul>
+        <li>Accompagnement vocationnel et pastoral</li>
+        <li>Psychopédagogie et psychothérapie</li>
+        <li>Gestion de projets éducatifs, pastoraux et sociaux</li>
+        <li>Développement d’applications (fms_haiti)</li>
+        <li>Développement web (HTML, CSS, JavaScript, Django)</li>
+        <li>Animation de camps vocationnels</li>
+        <li>Création de supports pédagogiques interactifs</li>
+        <li>Informatique : bureautique, réseaux, développement</li>
+        <li>Animation de groupes, formation et enseignement</li>
+        <li>Leadership et coordination d’équipes</li>
+      </ul>
+    </section>
+
+    <section class="cv-section cv-box">
+      <h2>Langues</h2>
+      <ul>
+        <li>Français : Courant</li>
+        <li>Créole haïtien : Langue maternelle</li>
+        <li>Espagnol : Intermédiaire</li>
+        <li>Anglais : Intermédiaire</li>
+      </ul>
+    </section>
+
+    <section class="cv-section cv-box">
+      <h2>Intérêts et loisirs</h2>
+      <ul>
+        <li>Lecture théologique et éducative</li>
+        <li>Création multimédia et vidéo</li>
+        <li>Sport (basketball, course)</li>
+        <li>Musique chrétienne et méditation</li>
+        <li>Voyages et échanges culturels</li>
+      </ul>
+    </section>
+
+ <section>
+    <h2>Réseaux &amp; Liens</h2>
+    <div class="social-boxes">
+      <a
+        href="https://github.com/Ricky-rh"
+        target="_blank"
+        rel="noopener"
+        aria-label="GitHub"
+        class="social-box github"
+      >
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </a>
+      <a
+        href="https://www.facebook.com/richard.nazaire.9"
+        target="_blank"
+        rel="noopener"
+        aria-label="Facebook"
+        class="social-box facebook"
+      >
+        <i class="fab fa-facebook-f"></i>
+        <span>Facebook</span>
+      </a>
+      <a
+        href="https://wa.me/50940074297"
+        target="_blank"
+        rel="noopener"
+        aria-label="WhatsApp"
+        class="social-box whatsapp"
+      >
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </a>
+      <a
+        href="https://x.com/NazaireRichard1/"
+        target="_blank"
+        rel="noopener"
+        aria-label="X"
+        class="social-box x"
+      >
+        <i class="fab fa-x-twitter"></i>
+        <span>X (Twitter)</span>
+      </a>
+      <a
+        href="https://www.instagram.com/no_art2012/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Instagram"
+        class="social-box instagram"
+      >
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
+    </div>
+  </section>
+
+  </section>
+</main>
+
+  <footer>
+    <p>&copy; 2025 Frère Richard NAZAIRE, fms. Tous droits réservés - &copy;Maristes.</p>
+  </footer>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
+</script>
+
+</body>
+</html>
